@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>mcdevitt — GitHub Pages Directory</title>
+  <style>
+    :root {
+      --bg: #f8fafc; --card: #ffffff; --text: #0f172a; --muted: #64748b;
+      --border: #e2e8f0; --accent: #059669; --accent-hover: #047857;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: var(--bg); color: var(--text);
+      max-width: 960px; margin: 0 auto; padding: 2rem 1.25rem;
+    }
+    header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+    h1 { font-size: 1.5rem; }
+    .subtitle { color: var(--muted); font-size: 0.9rem; margin-top: 0.25rem; }
+    .controls { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
+    input, select {
+      padding: 0.55rem 0.8rem; border: 1px solid var(--border);
+      border-radius: 8px; font-size: 0.9rem; background: var(--card);
+    }
+    input { flex: 1; min-width: 220px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+    .card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+      padding: 1.1rem; display: flex; flex-direction: column; justify-content: space-between; gap: 0.85rem;
+    }
+    .card h2 { font-size: 1.05rem; word-break: break-word; }
+    .desc { color: var(--muted); font-size: 0.85rem; line-height: 1.45; margin-top: 0.3rem; }
+    .meta { font-size: 0.75rem; color: var(--muted); margin-top: 0.4rem; }
+    .actions { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    a.btn, button.btn {
+      font-size: 0.8rem; font-weight: 600; padding: 0.45rem 0.75rem; border-radius: 7px;
+      text-decoration: none; cursor: pointer; border: 1px solid var(--border);
+      background: var(--bg); color: var(--text);
+    }
+    a.btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+    a.btn.primary:hover { background: var(--accent-hover); }
+    #status { color: var(--muted); font-size: 0.9rem; margin-bottom: 1rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>mcdevitt — Published Web Apps &amp; Pages</h1>
+      <p class="subtitle">Auto-indexed from public GitHub repositories with Pages enabled</p>
+    </div>
+    <a class="btn" href="https://github.com/mcdevitt" target="_blank" rel="noopener">GitHub Profile &rarr;</a>
+  </header>
+
+  <div class="controls">
+    <input id="search" type="search" placeholder="Filter by repo name or description..." />
+    <select id="sort">
+      <option value="updated">Recently Updated</option>
+      <option value="name">Alphabetical (A–Z)</option>
+    </select>
+  </div>
+
+  <div id="status">Loading GitHub Pages sites...</div>
+  <div id="grid" class="grid"></div>
+
+  <script>
+    const USERNAME = 'mcdevitt';
+    let sites = [];
+
+    async function fetchAllPagesRepos() {
+      let page = 1;
+      let all = [];
+      while (true) {
+        const res = await fetch(`https://api.github.com/users/${USERNAME}/repos?per_page=100&page=${page}`);
+        if (!res.ok) throw new Error(`GitHub API error (${res.status})`);
+        const batch = await res.json();
+        all = all.concat(batch);
+        if (batch.length < 100) break;
+        page++;
+      }
+      return all
+        .filter(r => r.has_pages && r.name.toLowerCase() !== `${USERNAME}.github.io`)
+        .map(r => {
+          const defaultUrl = `https://${USERNAME}.github.io/${r.name}/`;
+          const customUrl = r.homepage && r.homepage.startsWith('http') ? r.homepage : null;
+          return {
+            name: r.name,
+            description: r.description || 'No description provided.',
+            liveUrl: customUrl || defaultUrl,
+            defaultUrl,
+            repoUrl: r.html_url,
+            updatedAt: new Date(r.updated_at),
+          };
+        });
+    }
+
+    function render() {
+      const q = document.getElementById('search').value.toLowerCase().trim();
+      const sortBy = document.getElementById('sort').value;
+      const filtered = sites
+        .filter(s => s.name.toLowerCase().includes(q) || s.description.toLowerCase().includes(q))
+        .sort((a, b) => sortBy === 'name' ? a.name.localeCompare(b.name) : b.updatedAt - a.updatedAt);
+
+      document.getElementById('status').textContent = `Showing ${filtered.length} of ${sites.length} published pages`;
+      document.getElementById('grid').innerHTML = filtered.map(s => `
+        <article class="card">
+          <div>
+            <h2>${s.name}</h2>
+            <p class="desc">${s.description}</p>
+            <div class="meta">Updated ${s.updatedAt.toLocaleDateString()}</div>
+          </div>
+          <div class="actions">
+            <a class="btn primary" href="${s.liveUrl}" target="_blank" rel="noopener">Open App</a>
+            <button class="btn" onclick="navigator.clipboard.writeText('${s.liveUrl}'); this.textContent='Copied!'; setTimeout(() => this.textContent='Copy URL', 1200);">Copy URL</button>
+            <a class="btn" href="${s.repoUrl}" target="_blank" rel="noopener">Repo</a>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    document.getElementById('search').addEventListener('input', render);
+    document.getElementById('sort').addEventListener('change', render);
+
+    fetchAllPagesRepos()
+      .then(data => { sites = data; render(); })
+      .catch(err => { document.getElementById('status').textContent = err.message; });
+  </script>
+</body>
+</html>
