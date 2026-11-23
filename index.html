@@ -1,7 +1,1330 @@
 <!DOCTYPE html>
-<html>
-<body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr. Andrew McDevitt | Biology Education &amp; Undergraduate Research</title>
+  <!-- Load Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Load Google Font: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            uic: {
+              navy: '#001e62',
+              navyDark: '#001440',
+              red: '#d50032',
+              redHover: '#b00029',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Smooth panel entrance animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .tab-panel {
+      animation: fadeIn 0.25s ease-out;
+    }
+    /* Hide scrollbar on horizontal mobile nav while keeping scroll functionality */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    /* Crisp embedded products footer inside each topic callout card */
+    .card-products {
+      margin-top: 1.25rem;
+      padding-top: 1.1rem;
+      border-top: 1px dashed #cbd5e1;
+    }
+    /* Contextual inline links in About Me narrative */
+    .bio-link {
+      color: #001e62;
+      font-weight: 600;
+      text-decoration: underline;
+      text-decoration-color: rgba(213, 0, 50, 0.45);
+      text-underline-offset: 3px;
+      transition: color 0.15s ease, text-decoration-color 0.15s ease;
+    }
+    .bio-link:hover {
+      color: #d50032;
+      text-decoration-color: #d50032;
+    }
+  </style>
+</head>
+<body class="bg-[#f8fafc] text-[#1e293b] font-sans antialiased selection:bg-[#d50032] selection:text-white min-h-screen flex flex-col">
+
+  <!-- Persistent Top Header -->
+  <header class="bg-gradient-to-br from-[#001e62] via-[#001e62] to-[#001440] text-white border-b-4 border-[#d50032]">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+      <div class="flex flex-col md:flex-row items-center md:items-start gap-7">
+        
+        <!-- Headshot Avatar with Clean Fallback -->
+        <div class="flex flex-col items-center shrink-0">
+          <div class="relative w-32 h-32 sm:w-36 sm:h-36 rounded-full bg-slate-800/85 border-4 border-white/30 shadow-xl overflow-hidden flex items-center justify-center">
+            <img src="F54D0B9B-8ED8-4072-8303-629D61F9F63B.png"
+                 onerror="if(!this.dataset.triedFallback){this.dataset.triedFallback='1';this.src='profile.jpg';}else{this.style.display='none';this.nextElementSibling.classList.remove('hidden');}"
+                 alt="Dr. Andrew McDevitt"
+                 style="object-fit: cover; object-position: center 20%;"
+                 class="w-full h-full" />
+            <div class="hidden w-full h-full flex flex-col items-center justify-center text-slate-100 select-none">
+              <span class="text-3xl sm:text-4xl font-extrabold tracking-tight">AM</span>
+              <span class="text-[10px] uppercase tracking-widest text-slate-400 mt-1">Dr. McDevitt</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Name, Title, Badges & Academic Links -->
+        <div class="text-center md:text-left flex-1">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-xs font-medium text-blue-100 mb-3">
+            <span class="w-2 h-2 rounded-full bg-[#d50032]"></span>
+            Department of Biological Sciences &bull; University of Illinois Chicago
+          </div>
+          
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
+            Dr. Andrew McDevitt
+          </h1>
+          
+          <p class="mt-2 text-base sm:text-lg lg:text-xl text-slate-200 font-medium">
+            Clinical Assistant Professor | Department of Biological Sciences, University of Illinois Chicago
+          </p>
+
+          <!-- Topic Badges -->
+          <div class="flex flex-wrap justify-center md:justify-start gap-2 mt-4">
+            <span class="px-3 py-1 rounded-full bg-white/15 text-blue-50 text-xs font-semibold tracking-wide">Biology Education Research</span>
+            <span class="px-3 py-1 rounded-full bg-[#d50032]/90 text-white text-xs font-semibold tracking-wide">BIOS 110</span>
+            <span class="px-3 py-1 rounded-full bg-white/15 text-blue-50 text-xs font-semibold tracking-wide">Course-Based Undergraduate Research (CUREs)</span>
+            <span class="px-3 py-1 rounded-full bg-white/15 text-blue-50 text-xs font-semibold tracking-wide">Field Station &amp; REU Mentorship</span>
+            <span class="px-3 py-1 rounded-full bg-white/15 text-blue-50 text-xs font-semibold tracking-wide">Curriculum Reform</span>
+          </div>
+
+          <!-- External Profile Links & CV Download -->
+          <div class="flex flex-wrap justify-center md:justify-start gap-3 mt-6">
+            <a href="McDevitt_CV.pdf" target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center gap-2 bg-[#d50032] hover:bg-[#b00029] text-white font-semibold text-sm px-4 py-2.5 rounded-lg shadow-sm transition">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+              Download Full CV (PDF)
+            </a>
+
+            <a href="https://bios.uic.edu/profiles/mcdevitt-andrew/" target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center gap-2 bg-white text-[#001e62] hover:bg-slate-100 font-semibold text-sm px-4 py-2.5 rounded-lg shadow-sm transition">
+              <svg class="w-4 h-4 text-[#d50032]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+              </svg>
+              UIC Faculty Profile
+            </a>
+
+            <a href="https://orcid.org/0000-0002-8446-4931" target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/25 text-white font-semibold text-sm px-4 py-2.5 rounded-lg transition">
+              <span class="inline-flex items-center justify-center w-4 h-4 rounded-full bg-[#A6CE39] text-slate-900 font-extrabold text-[10px]">iD</span>
+              ORCID: 0000-0002-8446-4931
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Sticky Interactive Tab Navigation Bar (Reverse Chronological Order) -->
+  <nav id="portfolio-nav" aria-label="Primary Portfolio Tabs" class="sticky top-0 z-30 bg-white border-b border-slate-200 shadow-sm">
+    <div class="max-w-5xl mx-auto px-2 sm:px-6 lg:px-8">
+      <div role="tablist" class="flex items-center overflow-x-auto no-scrollbar">
+        <button type="button" id="tab-btn-about" role="tab" aria-selected="true" aria-controls="panel-about"
+                data-tab="about"
+                class="tab-btn active group relative px-4 py-4 text-sm font-semibold whitespace-nowrap border-b-2 border-[#d50032] text-[#001e62] transition-colors focus:outline-none">
+          About Me
+        </button>
+
+        <button type="button" id="tab-btn-bios110" role="tab" aria-selected="false" aria-controls="panel-bios110"
+                data-tab="bios110"
+                class="tab-btn group relative px-4 py-4 text-sm font-semibold whitespace-nowrap border-b-2 border-transparent text-slate-500 hover:text-[#001e62] transition-colors focus:outline-none">
+          BIOS 110 (UIC)
+        </button>
+
+        <button type="button" id="tab-btn-cures" role="tab" aria-selected="false" aria-controls="panel-cures"
+                data-tab="cures"
+                class="tab-btn group relative px-4 py-4 text-sm font-semibold whitespace-nowrap border-b-2 border-transparent text-slate-500 hover:text-[#001e62] transition-colors focus:outline-none">
+          Course-Based Research (CUREs)
+        </button>
+
+        <button type="button" id="tab-btn-simulations" role="tab" aria-selected="false" aria-controls="panel-simulations"
+                data-tab="simulations"
+                class="tab-btn group relative px-4 py-4 text-sm font-semibold whitespace-nowrap border-b-2 border-transparent text-slate-500 hover:text-[#001e62] transition-colors focus:outline-none">
+          Classroom Simulations
+        </button>
+
+        <button type="button" id="tab-btn-large-enrollment" role="tab" aria-selected="false" aria-controls="panel-large-enrollment"
+                data-tab="large-enrollment"
+                class="tab-btn group relative px-4 py-4 text-sm font-semibold whitespace-nowrap border-b-2 border-transparent text-slate-500 hover:text-[#001e62] transition-colors focus:outline-none">
+          Large-Enrollment STEM &amp; LA Model
+        </button>
+
+        <button type="button" id="tab-btn-field-research" role="tab" aria-selected="false" aria-controls="panel-field-research"
+                data-tab="field-research"
+                class="tab-btn group relative px-4 py-4 text-sm font-semibold whitespace-nowrap border-b-2 border-transparent text-slate-500 hover:text-[#001e62] transition-colors focus:outline-none">
+          Undergraduate Field Research
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content Area -->
+  <main class="flex-1 max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+
+    <!-- =====================================================================
+         TAB 1: ABOUT ME (#about) — Restored Verbatim Narrative & Cards
+    ====================================================================== -->
+    <section id="panel-about" role="tabpanel" aria-labelledby="tab-btn-about" class="tab-panel active space-y-8">
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <span class="w-1.5 h-7 bg-[#d50032] rounded-full"></span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-[#001e62]">About Me</h2>
+        </div>
+
+        <div class="bg-white rounded-xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-4 text-slate-700 leading-relaxed text-base">
+          <p>
+            Welcome everyone! My path into biology and education research has been anything but linear—and looking back, it is remarkable how twists and unexpected detours ended up lining up. I was born and raised in Philadelphia, Pennsylvania, and before attending college I worked in residential construction renovating houses. That early interest in building and design followed me to <strong class="text-slate-900">Penn State University</strong>, where I majored in Biology (Ecology &amp; Evolution) while minoring in Architectural History. During college, I also had my first taste of peer-facilitated teaching as an undergraduate teaching assistant for <em>BISCI 003: Environmental Science</em>—a course shaped by Dr. Christopher Uhl’s book <a href="https://www.chelseagreen.com/product/teaching-as-if-life-matters/" target="_blank" rel="noopener noreferrer" class="bio-link"><em>Teaching as if Life Matters</em></a>, which operated much like an early forerunner of today’s Learning Assistant model.
+          </p>
+          <p>
+            Still figuring out exactly what I wanted to do after graduation, I applied to the <strong class="text-slate-900">Peace Corps</strong> and was invited to manage sustainable infrastructure projects in West Africa—potentially bound for Timbuktu, Mali. While waiting to deploy overseas, I took a temporary job at <a href="https://www.juniata.edu/academics/departments/environmental/field-station/" target="_blank" rel="noopener noreferrer" class="bio-link">Juniata College’s Raystown Field Station</a> in central Pennsylvania. When regional instability in the Sahel prevented my Peace Corps assignment from moving forward, that temporary position grew into a permanent role as Resident Director (2011–2014). Working side-by-side with undergraduates on field projects there sparked a realization: what energized me most was supporting students as they discovered how to do real science.
+          </p>
+          <p>
+            To understand what motivates students to pursue and persist in research, I went on to earn an M.S. in Biology at <strong class="text-slate-900">Illinois State University</strong> (2016). Alongside my master’s advisor, <a href="https://about.illinoisstate.edu/rdarne/" target="_blank" rel="noopener noreferrer" class="bio-link">Dr. Rebekka Darner-Gougis</a>, I took a chance on spending summers coordinating and studying the Summer Research Program in Ecology (NSF REU) at <a href="https://harvardforest.fas.harvard.edu/" target="_blank" rel="noopener noreferrer" class="bio-link">Harvard University’s Harvard Forest</a> (2015–2021). That leap connected me to the broader NSF REU, Long Term Ecological Research (LTER), and <a href="https://ufern.net/" target="_blank" rel="noopener noreferrer" class="bio-link">Undergraduate Field Experiences Research Network (U-FERN)</a> communities—and introduced me to <a href="https://clas.ucdenver.edu/integrative-biology/laurel-hartley" target="_blank" rel="noopener noreferrer" class="bio-link">Dr. Laurel Hartley</a>, who became my Ph.D. advisor at the <strong class="text-slate-900">University of Colorado Denver</strong>.
+          </p>
+          <p>
+            During my Ph.D. in Integrative and Systems Biology (2022), I became deeply grounded in educational frameworks while studying active learning and <strong class="text-slate-900">Learning Assistant (LA)</strong> supported STEM classrooms. Then COVID-19 hit right in the middle of my data collection—and for one to two years, the in-person interactive classrooms I was observing effectively ceased to exist. That sudden disruption pushed me to pivot toward Course-Based Undergraduate Research Experiences (CUREs): first through a canine 16S metagenomics CURE connected to the Morris Animal Foundation’s <a href="https://www.morrisanimalfoundation.org/golden-retriever-lifetime-study" target="_blank" rel="noopener noreferrer" class="bio-link">Golden Retriever Lifetime Study</a>, and then by taking over CU Denver’s introductory biology lab and <a href="https://www.urbanwildlifeinfo.org/" target="_blank" rel="noopener noreferrer" class="bio-link">Urban Wildlife Information Network (UWIN)</a> CURE during the final year of my Ph.D. and my postdoctoral fellowship in the Office of Inclusive Excellence in STEM (2022–2024).
+          </p>
+          <p>
+            Excited to extend authentic research experiences to as many undergraduates as possible, I joined the <strong class="text-[#001e62]">University of Illinois Chicago (UIC)</strong> in 2024 as a <strong class="text-[#001e62]">Clinical Assistant Professor</strong> in the Department of Biological Sciences. Today, I lead <strong class="text-[#001e62]">BIOS 110 (The Biology of Cells and Organisms)</strong> and am integrating a scalable 16S genomics CURE—currently investigating commercial probiotics—into introductory biology for over 1,000 students each semester. If there is one takeaway I hope students get from my path, it is that plans change constantly, detours are normal, and the skills you pick up along the way often connect in ways you can only see in hindsight.
+          </p>
+        </div>
+      </div>
+
+      <!-- Two-Column Grid: Academic Training & Service/Affiliations -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <!-- Card 1: Academic Training & Degrees -->
+        <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm space-y-5">
+          <h3 class="text-lg font-bold text-[#001e62] border-b border-slate-100 pb-3 flex items-center gap-2">
+            <svg class="w-5 h-5 text-[#d50032]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 7l-9-5 9-5 9 5-9 5z" />
+            </svg>
+            Academic Training &amp; Degrees
+          </h3>
+
+          <div class="space-y-4">
+            <div>
+              <div class="flex items-center justify-between gap-2">
+                <h4 class="font-bold text-slate-900 text-sm sm:text-base">Ph.D. in Integrative and Systems Biology</h4>
+                <span class="text-xs font-bold bg-blue-50 text-[#001e62] px-2.5 py-0.5 rounded-full shrink-0">2022</span>
+              </div>
+              <p class="text-sm font-medium text-[#001e62]">University of Colorado Denver</p>
+              <p class="text-xs text-slate-500 mt-1">
+                Dissertation: <em>Advancing Understanding of Student-Centered Instruction in Undergraduate STEM by Promoting the Connection of Theory with Analytical Techniques</em> (Advisor: Dr. Laurel Hartley)
+              </p>
+            </div>
+
+            <div class="border-t border-slate-100 pt-3">
+              <div class="flex items-center justify-between gap-2">
+                <h4 class="font-bold text-slate-900 text-sm sm:text-base">M.S. in Biology (Conservation Biology Sequence)</h4>
+                <span class="text-xs font-bold bg-blue-50 text-[#001e62] px-2.5 py-0.5 rounded-full shrink-0">2016</span>
+              </div>
+              <p class="text-sm font-medium text-[#001e62]">Illinois State University</p>
+              <p class="text-xs text-slate-500 mt-1">
+                Thesis: <em>Why are students doing research? Examining the motivation of students involved in undergraduate research programs</em> (Advisor: Dr. Rebekka Darner-Gougis)
+              </p>
+            </div>
+
+            <div class="border-t border-slate-100 pt-3">
+              <div class="flex items-center justify-between gap-2">
+                <h4 class="font-bold text-slate-900 text-sm sm:text-base">B.S. in Biology (Ecology &amp; Evolution Option)</h4>
+                <span class="text-xs font-bold bg-blue-50 text-[#001e62] px-2.5 py-0.5 rounded-full shrink-0">2011</span>
+              </div>
+              <p class="text-sm font-medium text-[#001e62]">The Pennsylvania State University</p>
+              <p class="text-xs text-slate-500 mt-1">
+                Minor in Architectural History &bull; Eberly College of Science &bull; Dean’s List (2009–2011)
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Service, Outreach & Professional Affiliations -->
+        <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm space-y-5">
+          <h3 class="text-lg font-bold text-[#001e62] border-b border-slate-100 pb-3 flex items-center gap-2">
+            <svg class="w-5 h-5 text-[#d50032]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+            </svg>
+            Service, Outreach &amp; Affiliations
+          </h3>
+
+          <ul class="space-y-3 text-sm text-slate-700">
+            <li class="flex items-start gap-2.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#d50032] mt-2 shrink-0"></span>
+              <span><strong>UIC Student Mentorship &amp; Service:</strong> Faculty Advisor for Health Occupational Students of America (HOSA, 2026) and Member of the Massey Award Selection Committee (2025–2026).</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#d50032] mt-2 shrink-0"></span>
+              <span><strong>Visiting Fellow in Biology (2025):</strong> College Board — Contributed to the review of AP Biology Exam materials.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#d50032] mt-2 shrink-0"></span>
+              <span><strong>Scientific Review Committee (2018–2026):</strong> Denver Metro Regional Science and Engineering Fair (DMRSEF, 400+ volunteer hours).</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#001e62] mt-2 shrink-0"></span>
+              <span><strong>Selected Honors &amp; Awards:</strong> RaCas Diversity and Inclusion Award (CU Denver, 2017); Outstanding Master’s Student Award, Tak Cheung/Joni St. John General Education Lecture Instructor Award, and Marion Finn Outstanding Biology TA Award (Illinois State University, 2016).</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#001e62] mt-2 shrink-0"></span>
+              <span><strong>Professional Societies:</strong> American Society for Microbiology (ASM), Society for the Advancement of Biology Education Research (SABER), Undergraduate Field Experiences Research Network (U-FERN), National Association for Research in Science Teaching (NARST), and Long Term Ecological Research Network (LTER).</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         TAB 2: BIOS 110: THE BIOLOGY OF CELLS & ORGANISMS (#bios110)
+    ====================================================================== -->
+    <section id="panel-bios110" role="tabpanel" aria-labelledby="tab-btn-bios110" class="tab-panel hidden space-y-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div>
+          <div class="flex items-center gap-3 mb-2">
+            <span class="w-1.5 h-7 bg-[#d50032] rounded-full"></span>
+            <h2 class="text-2xl sm:text-3xl font-bold text-[#001e62]">BIOS 110: The Biology of Cells &amp; Organisms</h2>
+          </div>
+          <p class="text-slate-600 leading-relaxed max-w-3xl">
+            University of Illinois Chicago &bull; 4 Credits (Lecture &amp; Laboratory) &bull; Serving 400–480 lecture students and 850–1,100 laboratory students across 33 sections per semester.
+          </p>
+        </div>
+
+        <!-- Prominent Course Syllabus Download Link -->
+        <div class="shrink-0">
+          <a href="BIOS_110_Syllabus_Fall_2026.pdf" target="_blank" rel="noopener noreferrer"
+             class="inline-flex items-center gap-2 bg-[#d50032] hover:bg-[#b00029] text-white font-semibold text-sm px-5 py-3 rounded-lg shadow-sm transition">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            View Fall 2026 Course Syllabus (PDF)
+          </a>
+        </div>
+      </div>
+
+      <!-- Course Philosophy & Learning Coach Approach -->
+      <article class="bg-white rounded-xl border border-slate-200 border-t-4 border-t-[#d50032] p-6 sm:p-7 shadow-sm space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <span class="text-xs font-bold uppercase tracking-wider text-[#d50032] bg-red-50 px-2.5 py-1 rounded-md">Teaching Philosophy &amp; Classroom Community</span>
+          <span class="text-xs font-semibold text-slate-500">Aligned with AAAS <em>Vision and Change</em></span>
+        </div>
+        <h3 class="text-xl font-bold text-[#001e62]">"I Don't Teach You Anything—Instead, I Help You Learn"</h3>
+        <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+          In BIOS 110, we explore life from biological molecules and metabolic pathways to cellular systems and organismal physiology. Rather than treating introductory biology as an exercise in memorizing isolated facts, I approach my role as a <strong>learning coach</strong>—designing transparent, structured, and collaborative experiences where making mistakes is normalized as an essential part of scientific thinking.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 pt-2">
+          <div class="p-3.5 rounded-lg bg-slate-50 border border-slate-200/80">
+            <h4 class="font-bold text-[#001e62] text-sm mb-1">Anyone Can Be a Scientist</h4>
+            <p class="text-xs text-slate-600 leading-relaxed">Curiosity, effort, and openness to learning are what make a scientist—not prior lab experience or background.</p>
+          </div>
+          <div class="p-3.5 rounded-lg bg-slate-50 border border-slate-200/80">
+            <h4 class="font-bold text-[#001e62] text-sm mb-1">Transparent Path to Success</h4>
+            <p class="text-xs text-slate-600 leading-relaxed">Every lecture outline, reflection, Lab Skill Builder, and assessment is purposefully aligned so expectations are always clear.</p>
+          </div>
+          <div class="p-3.5 rounded-lg bg-slate-50 border border-slate-200/80">
+            <h4 class="font-bold text-[#001e62] text-sm mb-1">Growth Over Grades</h4>
+            <p class="text-xs text-slate-600 leading-relaxed">Success and joy in learning are not mutually exclusive—your development as a thinker, learner, and person comes first.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Two-Column Course Architecture & Support Ecosystem -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <article class="bg-white rounded-xl border border-slate-200 border-t-4 border-t-[#001e62] p-6 shadow-sm space-y-3">
+          <h3 class="text-lg font-bold text-[#001e62]">16-Week Course Progression</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Built around free <a href="https://openstax.org/details/books/biology-2e" target="_blank" rel="noopener noreferrer" class="bio-link">OpenStax <em>Biology 2e</em></a> materials, interactive iClicker Cloud sessions, and weekly metacognitive reflections:
+          </p>
+          <ul class="space-y-2 text-sm text-slate-700 pt-1">
+            <li class="flex items-start gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#d50032] mt-2 shrink-0"></span>
+              <span><strong>Weeks 1–5 (Foundations):</strong> Scientific skills, biological chemistry, cellular structure, microscopy, and enzyme kinetics.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#d50032] mt-2 shrink-0"></span>
+              <span><strong>Weeks 6–10 (Genomics CURE):</strong> Cell division, DNA structure, protein synthesis, DNA extraction, PCR, gel electrophoresis, and 16S rRNA sequencing of commercial probiotics.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#d50032] mt-2 shrink-0"></span>
+              <span><strong>Weeks 11–15 (Bioenergetics &amp; Systems):</strong> Membrane transport, photosynthesis, cellular respiration, and comparative animal physiology.</span>
+            </li>
+          </ul>
+        </article>
+
+        <article class="bg-white rounded-xl border border-slate-200 border-t-4 border-t-[#001e62] p-6 shadow-sm space-y-3">
+          <h3 class="text-lg font-bold text-[#001e62]">Instructional Team &amp; Student Flexibility</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Large courses thrive when students have multiple entry points for mentorship, peer collaboration, and equitable course policies:
+          </p>
+          <ul class="space-y-2 text-sm text-slate-700 pt-1">
+            <li class="flex items-start gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#001e62] mt-2 shrink-0"></span>
+              <span><strong>Peer Learning Assistants (PLAs):</strong> Experienced undergraduates who recently excelled in BIOS 110 host drop-in sessions in UIC’s Math and Science Learning Center (MSLC).</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#001e62] mt-2 shrink-0"></span>
+              <span><strong>Lab Teaching Assistants (14–18 TAs/semester):</strong> Post-bac and graduate TAs trained in dialogic facilitation guide 30+ weekly lab sections.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#001e62] mt-2 shrink-0"></span>
+              <span><strong>Lab Skill Builders &amp; Drop Policies:</strong> Scaffolded online skill builders let students stay on track after an excused absence without losing CURE momentum.</span>
+            </li>
+          </ul>
+        </article>
+      </div>
+
+      <!-- Complete Open-Access Lab Manual Series (15 DOIs) -->
+      <article class="bg-white rounded-xl border border-slate-200 p-6 sm:p-7 shadow-sm space-y-5">
+        <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3">
+          <div>
+            <h3 class="text-lg sm:text-xl font-bold text-[#001e62]">Open-Access BIOS 110 Student Lab Manuals (2025–2026)</h3>
+            <p class="text-xs sm:text-sm text-slate-500 mt-0.5">Self-published modular lab manuals archived with permanent DOIs via University of Illinois Chicago (UIC Indigo).</p>
+          </div>
+          <span class="text-xs font-bold bg-blue-50 text-[#001e62] px-3 py-1 rounded-full">15 Open Modules</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Column A: Molecular & Genomics CURE Manuals -->
+          <div>
+            <h4 class="text-xs font-extrabold uppercase tracking-wider text-[#d50032] mb-3">Molecular &amp; Genomics CURE Series</h4>
+            <div class="space-y-2 text-sm">
+              <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 flex items-center justify-between gap-2">
+                <span class="font-medium text-slate-800">Gel Electrophoresis (2026)</span>
+                <a href="https://doi.org/10.25417/uic.31855723" target="_blank" rel="noopener noreferrer" class="shrink-0 text-xs font-bold text-[#d50032] hover:underline">DOI &nearr;</a>
+              </div>
+              <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 flex items-center justify-between gap-2">
+                <span class="font-medium text-slate-800">Enzymes, 2nd Edition (2026)</span>
+                <a href="https://doi.org/10.25417/uic.31855738" target="_blank" rel="noopener noreferrer" class="shrink-0 text-xs font-bold text-[#d50032] hover:underline">DOI &nearr;</a>
+              </div>
+              <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 flex items-center justify-between gap-2">
+                <span class="font-medium text-slate-800">Intro to Molecular Biology Techniques (2026)</span>
+                <a href="https://doi.org/10.25417/uic.31855738" target="_blank" rel="noopener noreferrer" class="shrink-0 text-xs font-bold text-[#d50032] hover:underline">DOI &nearr;</a>
+              </div>
+              <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 flex items-center justify-between gap-2">
+                <span class="font-medium text-slate-800">Polymerase Chain Reaction (2025)</span>
+                <a href="https://doi.org/10.25417/uic.31855834" target="_blank" rel="noopener noreferrer" class="shrink-0 text-xs font-bold text-[#d50032] hover:underline">DOI &nearr;</a>
+              </div>
+              <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 flex items-center justify-between gap-2">
+                <span class="font-medium text-slate-800">DNA Extraction (2025)</span>
+                <a href="https://doi.org/10.25417/uic.31855672" target="_blank" rel="noopener noreferrer" class="shrink-0 text-xs font-bold text-[#d50032] hover:underline">DOI &nearr;</a>
+              </div>
+              <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 flex items-center justify-between gap-2">
+                <span class="font-medium text-slate-800">Introduction to Omics (2025)</span>
+                <a href="https://doi.org/10.25417/uic.31855741" target="_blank" rel="noopener noreferrer" class="shrink-0 text-xs font-bold text-[#d50032] hover:underline">DOI &nearr;</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column B: Cellular, Bioenergetics & Physiology Manuals -->
+          <div>
+            <h4 class="text-xs font-extrabold uppercase tracking-wider text-[#001e62] mb-3">Cellular, Bioenergetics &amp; Physiology Series</h4>
+            <div class="space-y-2 text-sm">
+              <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 flex items-center justify-between gap-2">
+                <span class="font-medium text-slate-800">Cellular Structure and Function (2025)</span>
+                <a href="https://doi.org/10.25417/uic.31855636" target="_blank" rel="noopener noreferrer" class="shrink-0 text-xs font-bold text-[#001e62] hover:text-[#d50032]">DOI &nearr;</a>
+              </div>
+              <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 flex items-center justify-between gap-2">
+                <span class="font-medium text-slate-800">Introduction to Microscopes (2025)</span>
+                <a href="https://doi.org/10.25417/uic.31855729" target="_blank" rel="noopener noreferrer" class="shrink-0 text-xs font-bold text-[#001e62] hover:text-[#d50032]">DOI &nearr;</a>
+              </div>
+              <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 flex items-center justify-between gap-2">
+                <span class="font-medium text-slate-800">Introduction to the Group Project (2025)</span>
+                <a href="https://doi.org/10.25417/uic.31855600" target="_blank" rel="noopener noreferrer" class="shrink-0 text-xs font-bold text-[#001e62] hover:text-[#d50032]">DOI &nearr;</a>
+              </div>
+              <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 flex items-center justify-between gap-2">
+                <span class="font-medium text-slate-800">Respiration (2025)</span>
+                <a href="https://doi.org/10.25417/uic.31855612" target="_blank" rel="noopener noreferrer" class="shrink-0 text-xs font-bold text-[#001e62] hover:text-[#d50032]">DOI &nearr;</a>
+              </div>
+              <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 flex items-center justify-between gap-2">
+                <span class="font-medium text-slate-800">Enzymes, 1st Edition (2025)</span>
+                <a href="https://doi.org/10.25417/uic.31855657" target="_blank" rel="noopener noreferrer" class="shrink-0 text-xs font-bold text-[#001e62] hover:text-[#d50032]">DOI &nearr;</a>
+              </div>
+              <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 flex items-center justify-between gap-2">
+                <span class="font-medium text-slate-800">Form and Function in Photosynthesis (2025)</span>
+                <a href="https://doi.org/10.25417/uic.31855699" target="_blank" rel="noopener noreferrer" class="shrink-0 text-xs font-bold text-[#001e62] hover:text-[#d50032]">DOI &nearr;</a>
+              </div>
+              <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 flex items-center justify-between gap-2">
+                <span class="font-medium text-slate-800">Vertebrate Eyes (2025)</span>
+                <a href="https://doi.org/10.25417/uic.31855849" target="_blank" rel="noopener noreferrer" class="shrink-0 text-xs font-bold text-[#001e62] hover:text-[#d50032]">DOI &nearr;</a>
+              </div>
+              <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 flex items-center justify-between gap-2">
+                <span class="font-medium text-slate-800">Digestive System (2025)</span>
+                <a href="https://doi.org/10.25417/uic.31855684" target="_blank" rel="noopener noreferrer" class="shrink-0 text-xs font-bold text-[#001e62] hover:text-[#d50032]">DOI &nearr;</a>
+              </div>
+              <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200/80 flex items-center justify-between gap-2">
+                <span class="font-medium text-slate-800">Pig Anatomy and Physiology (2025)</span>
+                <a href="https://doi.org/10.25417/uic.31855744" target="_blank" rel="noopener noreferrer" class="shrink-0 text-xs font-bold text-[#001e62] hover:text-[#d50032]">DOI &nearr;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- =====================================================================
+         TAB 3: COURSE-BASED UNDERGRADUATE RESEARCH EXPERIENCES (#cures)
+    ====================================================================== -->
+    <section id="panel-cures" role="tabpanel" aria-labelledby="tab-btn-cures" class="tab-panel hidden space-y-8">
+      <div>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="w-1.5 h-7 bg-[#d50032] rounded-full"></span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-[#001e62]">Course-Based Undergraduate Research Experiences (CUREs)</h2>
+        </div>
+        <p class="text-slate-600 leading-relaxed max-w-4xl">
+          Traditional apprentice-style undergraduate research positions are often limited by lab capacity. My work focuses on designing, scaling, and evaluating authentic, process-oriented CUREs embedded directly into high-enrollment introductory biology courses—giving every student hands-on experience with experimental controls, technical replication, bioinformatics/R pipelines, and scientific troubleshooting.
+        </p>
+      </div>
+
+      <!-- Topic Callout Cards with Embedded Products -->
+      <div class="space-y-6">
+        
+        <!-- Card 1: BIOS 110 Genomics CURE -->
+        <article class="bg-white rounded-xl border border-slate-200 border-t-4 border-t-[#d50032] p-6 sm:p-7 shadow-sm">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-[#d50032] bg-red-50 px-2.5 py-1 rounded-md">UIC &bull; August 2025 – Present</span>
+            <span class="text-xs font-semibold text-slate-500">~1,100 Students / Semester &bull; 33 Lab Sections</span>
+          </div>
+          <h3 class="text-xl font-bold text-[#001e62] mb-2">BIOS 110 Probiotics &amp; 16S Genomics CURE</h3>
+          <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+            A scalable molecular and genomics workflow introducing introductory biology students to iterative experimentation and data analysis. Across 33 lab sections each semester, students practice core bench techniques, extract genomic DNA from commercial probiotic supplements, perform PCR and gel electrophoresis, and prepare samples for 16S rRNA sequencing. Students analyze microbial community sequence data against spike-in controls and evaluate variation across peers as technical replicates—emphasizing process-oriented thinking, quality control (QA/QC), troubleshooting, and interpretation of experimental variability.
+          </p>
+
+          <!-- Embedded Products & Outputs (Probiotics Web Explorers + Clean UIC Indigo Repository Link) -->
+          <div class="card-products space-y-4">
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-extrabold uppercase tracking-wider text-[#001e62]">Interactive CURE Tools &amp; Open-Access Repository</span>
+            </div>
+
+            <!-- Two Probiotics Web Explorer Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-sm">
+              <a href="https://mcdevitt.github.io/BIOS110/Probiotics_Project.html" target="_blank" rel="noopener noreferrer"
+                 class="group block p-4 rounded-xl bg-slate-50 hover:bg-blue-50/60 border border-slate-200 hover:border-[#001e62]/40 transition">
+                <div class="flex items-center justify-between mb-1">
+                  <span class="text-[10px] font-bold uppercase tracking-wider bg-blue-100 text-[#001e62] px-2 py-0.5 rounded">Interactive Web App</span>
+                  <span class="text-xs font-bold text-[#001e62] group-hover:translate-x-0.5 transition-transform">&nearr;</span>
+                </div>
+                <h4 class="font-bold text-slate-900 group-hover:text-[#001e62]">Probiotics Project Explorer</h4>
+                <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                  Interactive classroom portal guiding students through experimental design, molecular workflow checkpoints, and cohort probiotic data.
+                </p>
+              </a>
+
+              <a href="https://mcdevitt.github.io/BIOS110/Probiotic_16S_Explorer.html" target="_blank" rel="noopener noreferrer"
+                 class="group block p-4 rounded-xl bg-slate-50 hover:bg-blue-50/60 border border-slate-200 hover:border-[#001e62]/40 transition">
+                <div class="flex items-center justify-between mb-1">
+                  <span class="text-[10px] font-bold uppercase tracking-wider bg-blue-100 text-[#001e62] px-2 py-0.5 rounded">Bioinformatics Tool</span>
+                  <span class="text-xs font-bold text-[#001e62] group-hover:translate-x-0.5 transition-transform">&nearr;</span>
+                </div>
+                <h4 class="font-bold text-slate-900 group-hover:text-[#001e62]">Probiotic 16S Explorer</h4>
+                <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                  Browser-based bioinformatics explorer linking 16S rRNA bacterial sequencing profiles directly to primary PubMed literature.
+                </p>
+              </a>
+            </div>
+
+            <!-- Clean UIC Indigo Author Profile Banner -->
+            <div class="p-4 rounded-xl bg-gradient-to-r from-slate-50 via-red-50/30 to-blue-50/40 border border-slate-200/90">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div>
+                  <span class="inline-block text-[10px] font-bold uppercase tracking-wider bg-[#d50032] text-white px-2 py-0.5 rounded mb-1">
+                    Open-Access Repository
+                  </span>
+                  <h4 class="font-bold text-[#001e62] text-sm sm:text-base">
+                    UIC Indigo Author Profile &mdash; Open-Access Lab Manuals &amp; DOIs
+                  </h4>
+                  <p class="text-xs text-slate-600 mt-0.5">
+                    All BIOS 110 CURE student lab manuals, protocols, and permanent DOI records are publicly archived on UIC Indigo.
+                  </p>
+                </div>
+                <a href="https://indigo.uic.edu/authors/Andrew_McDevitt/23803660" target="_blank" rel="noopener noreferrer"
+                   class="shrink-0 inline-flex items-center justify-center gap-1.5 bg-[#001e62] hover:bg-[#d50032] text-white font-semibold text-xs sm:text-sm px-4 py-2.5 rounded-lg shadow-sm transition">
+                  View on UIC Indigo &nearr;
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2: Urban Wildlife Information Network (UWIN) CURE -->
+        <article class="bg-white rounded-xl border border-slate-200 border-t-4 border-t-[#001e62] p-6 sm:p-7 shadow-sm">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-[#001e62] bg-blue-50 px-2.5 py-1 rounded-md">CU Denver &bull; January 2020 – December 2022</span>
+            <span class="text-xs font-semibold text-slate-500">250–700 Students / Semester</span>
+          </div>
+          <h3 class="text-xl font-bold text-[#001e62] mb-2">Urban Wildlife Information Network (UWIN) CURE</h3>
+          <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+            Partnered with the international <a href="https://www.urbanwildlifeinfo.org/" target="_blank" rel="noopener noreferrer" class="bio-link">Urban Wildlife Information Network (UWIN)</a> to build an introductory biology CURE where 250–700 students per semester explored Denver’s urban ecology, analyzed mammal community occupancy data from motion-triggered camera traps, and communicated their scientific findings to broader audiences.
+          </p>
+
+          <!-- Embedded Products & Outputs -->
+          <div class="card-products">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="text-xs font-extrabold uppercase tracking-wider text-[#001e62]">Associated Products &amp; Mentored Outputs</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+              <div class="p-3 rounded-lg bg-slate-50 border border-slate-200/80">
+                <span class="inline-block text-[10px] font-bold uppercase tracking-wider bg-indigo-100 text-indigo-900 px-2 py-0.5 rounded mb-1">Mentored Student Thesis (2022)</span>
+                <p class="text-slate-800">
+                  Almarzooq, D. (2022). <em>Promoting student understanding of camera trap methodology during a course-based undergraduate research experience.</em> University of Colorado Denver.
+                </p>
+              </div>
+
+              <div class="p-3 rounded-lg bg-slate-50 border border-slate-200/80">
+                <span class="inline-block text-[10px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-900 px-2 py-0.5 rounded mb-1">Quantitative Tools &amp; Curriculum</span>
+                <p class="text-slate-800">
+                  Custom R analytical scripts aligning field methods with statistical inference, online camera-trap image database management, student data interpretation modules, and revised TA laboratory guides.
+                </p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3: Canine 16S Metagenomics CURE & Evaluation Protocols -->
+        <article class="bg-white rounded-xl border border-slate-200 border-t-4 border-t-[#001e62] p-6 sm:p-7 shadow-sm">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-[#001e62] bg-blue-50 px-2.5 py-1 rounded-md">CU Denver &bull; 2020–2024</span>
+            <span class="text-xs font-semibold text-slate-500">CURE Evaluation &amp; Curriculum Reform</span>
+          </div>
+          <h3 class="text-xl font-bold text-[#001e62] mb-2">Canine 16S Metagenomics CURE &amp; Laboratory Technique Evaluation</h3>
+          <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+            Investigated student learning and bench skill development within a canine 16S rRNA metagenomics CURE linked to the <a href="https://www.morrisanimalfoundation.org/golden-retriever-lifetime-study" target="_blank" rel="noopener noreferrer" class="bio-link">Golden Retriever Lifetime Study</a>, and subsequently oversaw introductory biology curriculum reform and CURE expansion (including antibiotic resistance in soil bacteria and 16S metagenomics modules) during my postdoctoral fellowship in CU Denver’s Office of Inclusive Excellence in STEM.
+          </p>
+
+          <!-- Embedded Products & Outputs -->
+          <div class="card-products">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="text-xs font-extrabold uppercase tracking-wider text-[#001e62]">Associated Presentations &amp; Assessment Protocols</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+              <div class="p-3 rounded-lg bg-slate-50 border border-slate-200/80">
+                <span class="inline-block text-[10px] font-bold uppercase tracking-wider bg-amber-100 text-amber-900 px-2 py-0.5 rounded mb-1">Oral Presentation &bull; ASMCUE 2021</span>
+                <p class="text-slate-800">
+                  <strong>McDevitt A.</strong>, Romero A. (2021). "Re-Examining the role of a canine metagenomics CURE." <em>ASM Conference for Undergraduate Educators</em>.
+                </p>
+              </div>
+
+              <div class="p-3 rounded-lg bg-slate-50 border border-slate-200/80">
+                <span class="inline-block text-[10px] font-bold uppercase tracking-wider bg-amber-100 text-amber-900 px-2 py-0.5 rounded mb-1">Poster Presentation &bull; ASMCUE 2021</span>
+                <p class="text-slate-800">
+                  <strong>McDevitt A.</strong>, Romero A., Miller C., Hartley L. (2021). "Developing a protocol to evaluate laboratory techniques during a 16S metagenomics CURE." <em>ASM Conference for Undergraduate Educators</em>.
+                </p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         TAB 4: CLASSROOM SIMULATIONS (#simulations)
+    ====================================================================== -->
+    <section id="panel-simulations" role="tabpanel" aria-labelledby="tab-btn-simulations" class="tab-panel hidden space-y-8">
+      <div>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="w-1.5 h-7 bg-[#d50032] rounded-full"></span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-[#001e62]">Classroom Simulations</h2>
+        </div>
+        <p class="text-slate-600 leading-relaxed max-w-4xl">
+          Complex biological systems—from cellular dynamics to evolutionary and ecological processes—are governed by stochasticity, feedback loops, and emergent interactions that are difficult to grasp from static textbook diagrams alone. My work integrates formal ecological inference, NetLogo agent-based modeling, and lightweight browser-based HTML/JavaScript applications hosted on GitHub Pages so introductory biology students can actively test competing hypotheses and manipulate experimental parameters.
+        </p>
+      </div>
+
+      <!-- Topic Callout Cards with Embedded Products -->
+      <div class="space-y-6">
+
+        <!-- Card 1 (Lead Anchor): Multiple Working Hypotheses & Ecological Modeling Inference (Yanco et al., 2020) -->
+        <article class="bg-white rounded-xl border border-slate-200 border-t-4 border-t-[#d50032] p-6 sm:p-7 shadow-sm">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-[#d50032] bg-red-50 px-2.5 py-1 rounded-md">Pedagogical &amp; Modeling Philosophy</span>
+            <span class="text-xs font-semibold text-slate-500">Mechanistic Modeling &amp; Ecological Inference</span>
+          </div>
+          <h3 class="text-xl font-bold text-[#001e62] mb-2">Multiple Working Hypotheses &amp; Simulation-Based Inference</h3>
+          <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+            Grounded in our peer-reviewed framework (Yanco et al., 2020), simulation-based instruction encourages students and researchers to move beyond single-hypothesis testing. By formulating multiple competing mechanistic models prior to interpreting data (&ldquo;hypothesis vetting&rdquo;) and comparing simulated system outcomes against empirical observations, students develop stronger quantitative reasoning, experimental troubleshooting, and inference skills.
+          </p>
+
+          <!-- Embedded Products & Outputs -->
+          <div class="card-products">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="text-xs font-extrabold uppercase tracking-wider text-[#001e62]">Associated Publications &amp; Quantitative Workshops</span>
+            </div>
+            <div class="space-y-3 text-sm">
+              <div class="p-3.5 rounded-lg bg-slate-50 border border-slate-200/80 border-l-4 border-l-[#d50032]">
+                <span class="inline-block text-[10px] font-bold uppercase tracking-wider bg-red-100 text-[#d50032] px-2 py-0.5 rounded mb-1">Peer-Reviewed Article &bull; Royal Society Open Science (2020)</span>
+                <p class="text-slate-800">
+                  Yanco S., <strong>McDevitt A.</strong>, Trueman C., Hartley L., Wunder M. (2020). "A modern method of multiple working hypotheses to improve inference in ecology." <em>Royal Society Open Science</em>, 7: 200231.
+                </p>
+                <a href="https://doi.org/10.1098/rsos.200231" target="_blank" rel="noopener noreferrer" class="inline-block mt-1 text-xs font-bold text-[#d50032] hover:underline">
+                  https://doi.org/10.1098/rsos.200231 &nearr;
+                </a>
+              </div>
+
+              <div class="p-3 rounded-lg bg-slate-50 border border-slate-200/80">
+                <span class="inline-block text-[10px] font-bold uppercase tracking-wider bg-amber-100 text-amber-900 px-2 py-0.5 rounded mb-1">Pre-Conference Workshop &bull; NARST 2019</span>
+                <p class="text-slate-800">
+                  Talbot R., <strong>McDevitt A.</strong> (2019). "Data Visualization in R." <em>Annual International Conference of the National Association for Research in Science Teaching (NARST)</em>, Baltimore, MD.
+                </p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2: Agent-Based Modeling (NetLogo) in Undergraduate Biology -->
+        <article class="bg-white rounded-xl border border-slate-200 border-t-4 border-t-[#001e62] p-6 sm:p-7 shadow-sm">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-[#001e62] bg-blue-50 px-2.5 py-1 rounded-md">Agent-Based Modeling (ABM)</span>
+            <a href="https://www.modelingcommons.org/users/andrew-mcdevitt/h5tyJUPE9PRY9iK4W62tP" target="_blank" rel="noopener noreferrer"
+               class="text-xs font-bold text-[#001e62] hover:text-[#d50032] underline">
+              NetLogo Modeling Commons Profile &nearr;
+            </a>
+          </div>
+          <h3 class="text-xl font-bold text-[#001e62] mb-2">NetLogo Simulations in Evolution &amp; Ecology</h3>
+          <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+            Integrated NetLogo agent-based simulations into undergraduate evolution and introductory biology courses (including <em>Introduction to Evolution</em> and gateway biology labs). Students manipulate selection pressures, population sizes, mutation rates, and spatial heterogeneity to observe how individual-level stochastic rules generate emergent population-level evolutionary and ecological patterns.
+          </p>
+
+          <!-- Embedded Products & Outputs -->
+          <div class="card-products">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="text-xs font-extrabold uppercase tracking-wider text-[#001e62]">Associated Classroom ABM Curricula</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+              <div class="p-3 rounded-lg bg-slate-50 border border-slate-200/80">
+                <span class="inline-block text-[10px] font-bold uppercase tracking-wider bg-blue-100 text-[#001e62] px-2 py-0.5 rounded mb-1">NetLogo Curriculum Module</span>
+                <p class="font-semibold text-slate-800">Evolutionary Mechanisms &amp; Population Genetics</p>
+                <p class="text-xs text-slate-600 mt-1">Guided inquiry activities exploring genetic drift, natural selection, bottlenecks, and Hardy-Weinberg deviations across replicated stochastic runs.</p>
+              </div>
+
+              <div class="p-3 rounded-lg bg-slate-50 border border-slate-200/80">
+                <span class="inline-block text-[10px] font-bold uppercase tracking-wider bg-blue-100 text-[#001e62] px-2 py-0.5 rounded mb-1">NetLogo Curriculum Module</span>
+                <p class="font-semibold text-slate-800">Ecological Sampling &amp; Population Dynamics</p>
+                <p class="text-xs text-slate-600 mt-1">Simulated field sampling and mark-recapture exercises teaching students how spatial clumping and sample size affect ecological parameter estimation.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3: BIOS 110 GitHub Interactive HTML Simulation Apps (All 12 Modules) -->
+        <article class="bg-white rounded-xl border border-slate-200 border-t-4 border-t-[#001e62] p-6 sm:p-7 shadow-sm">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-[#d50032] bg-red-50 px-2.5 py-1 rounded-md">UIC BIOS 110 &bull; 2025 – Present</span>
+            <span class="text-xs font-semibold text-slate-500">12 Zero-Install Browser Apps &bull; ~1,100 Students / Semester</span>
+          </div>
+          <h3 class="text-xl font-bold text-[#001e62] mb-2">BIOS 110 Interactive HTML5 Simulation Modules</h3>
+          <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+            To eliminate software installation barriers in large-enrollment courses, I build lightweight, single-file HTML5/JavaScript interactive simulations hosted directly on GitHub Pages. Designed to pair directly with our open-access BIOS 110 lab manuals and Genomics CURE, these apps let students run virtual experiments, troubleshoot molecular assays, and explore quantitative biology concepts on laptops, tablets, or smartphones.
+          </p>
+
+          <!-- Embedded Products & Outputs (All 12 Interactive Modules) -->
+          <div class="card-products">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+              <span class="text-xs font-extrabold uppercase tracking-wider text-[#001e62]">Interactive Web Applications (GitHub Pages Suite)</span>
+              <a href="https://github.com/McDevitt" target="_blank" rel="noopener noreferrer"
+                 class="inline-flex items-center gap-1 text-xs font-bold text-[#d50032] hover:underline">
+                View GitHub Repositories &nearr;
+              </a>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-sm">
+              <a href="https://mcdevitt.github.io/BIOS110/Probiotics_Project.html" target="_blank" rel="noopener noreferrer"
+                 class="group p-3.5 rounded-lg bg-slate-50 hover:bg-blue-50/70 border border-slate-200/80 hover:border-[#001e62]/40 transition">
+                <div class="flex items-center justify-between text-[11px] font-bold text-[#001e62] mb-1">
+                  <span>Genomics CURE</span>
+                  <span>&nearr;</span>
+                </div>
+                <h4 class="font-bold text-slate-900 group-hover:text-[#001e62] text-sm">Probiotics Project Explorer</h4>
+                <p class="text-xs text-slate-600 mt-1">Experimental design &amp; multi-week probiotic workflow dashboard.</p>
+              </a>
+
+              <a href="https://mcdevitt.github.io/BIOS110/Probiotic_16S_Explorer.html" target="_blank" rel="noopener noreferrer"
+                 class="group p-3.5 rounded-lg bg-slate-50 hover:bg-blue-50/70 border border-slate-200/80 hover:border-[#001e62]/40 transition">
+                <div class="flex items-center justify-between text-[11px] font-bold text-[#001e62] mb-1">
+                  <span>Bioinformatics</span>
+                  <span>&nearr;</span>
+                </div>
+                <h4 class="font-bold text-slate-900 group-hover:text-[#001e62] text-sm">Probiotic 16S Explorer</h4>
+                <p class="text-xs text-slate-600 mt-1">Taxonomic 16S sequencing profiles linked to PubMed literature.</p>
+              </a>
+
+              <a href="https://mcdevitt.github.io/BIOS110/PCR-Predicting_Amplification.html" target="_blank" rel="noopener noreferrer"
+                 class="group p-3.5 rounded-lg bg-slate-50 hover:bg-blue-50/70 border border-slate-200/80 hover:border-[#001e62]/40 transition">
+                <div class="flex items-center justify-between text-[11px] font-bold text-[#001e62] mb-1">
+                  <span>Molecular Biology</span>
+                  <span>&nearr;</span>
+                </div>
+                <h4 class="font-bold text-slate-900 group-hover:text-[#001e62] text-sm">PCR: Predicting Amplification</h4>
+                <p class="text-xs text-slate-600 mt-1">Interactive primer binding, cycle amplification, and amplicon size predictor.</p>
+              </a>
+
+              <a href="https://mcdevitt.github.io/BIOS110/Microscope_Comparison.html" target="_blank" rel="noopener noreferrer"
+                 class="group p-3.5 rounded-lg bg-slate-50 hover:bg-blue-50/70 border border-slate-200/80 hover:border-[#001e62]/40 transition">
+                <div class="flex items-center justify-between text-[11px] font-bold text-[#001e62] mb-1">
+                  <span>Microscopy</span>
+                  <span>&nearr;</span>
+                </div>
+                <h4 class="font-bold text-slate-900 group-hover:text-[#001e62] text-sm">Microscope Comparison</h4>
+                <p class="text-xs text-slate-600 mt-1">Compare field of view, magnification, and resolution across microscopy modes.</p>
+              </a>
+
+              <a href="https://mcdevitt.github.io/BIOS110/Lactase%20Enzyme%20Demo.html" target="_blank" rel="noopener noreferrer"
+                 class="group p-3.5 rounded-lg bg-slate-50 hover:bg-blue-50/70 border border-slate-200/80 hover:border-[#001e62]/40 transition">
+                <div class="flex items-center justify-between text-[11px] font-bold text-[#001e62] mb-1">
+                  <span>Biochemistry</span>
+                  <span>&nearr;</span>
+                </div>
+                <h4 class="font-bold text-slate-900 group-hover:text-[#001e62] text-sm">Lactase Enzyme Demo</h4>
+                <p class="text-xs text-slate-600 mt-1">Explore substrate concentration, temperature, and pH effects on reaction rates.</p>
+              </a>
+
+              <a href="https://mcdevitt.github.io/BIOS110/Mitosis_Meiosis.html" target="_blank" rel="noopener noreferrer"
+                 class="group p-3.5 rounded-lg bg-slate-50 hover:bg-blue-50/70 border border-slate-200/80 hover:border-[#001e62]/40 transition">
+                <div class="flex items-center justify-between text-[11px] font-bold text-[#001e62] mb-1">
+                  <span>Cell Division</span>
+                  <span>&nearr;</span>
+                </div>
+                <h4 class="font-bold text-slate-900 group-hover:text-[#001e62] text-sm">Mitosis &amp; Meiosis</h4>
+                <p class="text-xs text-slate-600 mt-1">Step-by-step chromosome segregation, ploidy tracking, and crossing over.</p>
+              </a>
+
+              <a href="https://mcdevitt.github.io/BIOS110/Photosynthesis.html" target="_blank" rel="noopener noreferrer"
+                 class="group p-3.5 rounded-lg bg-slate-50 hover:bg-blue-50/70 border border-slate-200/80 hover:border-[#001e62]/40 transition">
+                <div class="flex items-center justify-between text-[11px] font-bold text-[#001e62] mb-1">
+                  <span>Bioenergetics</span>
+                  <span>&nearr;</span>
+                </div>
+                <h4 class="font-bold text-slate-900 group-hover:text-[#001e62] text-sm">Photosynthesis</h4>
+                <p class="text-xs text-slate-600 mt-1">Light-dependent reactions, electron transport, and Calvin cycle carbon fixation.</p>
+              </a>
+
+              <a href="https://mcdevitt.github.io/BIOS110/Nephron.html" target="_blank" rel="noopener noreferrer"
+                 class="group p-3.5 rounded-lg bg-slate-50 hover:bg-blue-50/70 border border-slate-200/80 hover:border-[#001e62]/40 transition">
+                <div class="flex items-center justify-between text-[11px] font-bold text-[#001e62] mb-1">
+                  <span>Physiology</span>
+                  <span>&nearr;</span>
+                </div>
+                <h4 class="font-bold text-slate-900 group-hover:text-[#001e62] text-sm">Nephron Function</h4>
+                <p class="text-xs text-slate-600 mt-1">Filtration, reabsorption, secretion, and osmolarity gradients in the kidney.</p>
+              </a>
+
+              <a href="https://mcdevitt.github.io/BIOS110/Nervous_System.html" target="_blank" rel="noopener noreferrer"
+                 class="group p-3.5 rounded-lg bg-slate-50 hover:bg-blue-50/70 border border-slate-200/80 hover:border-[#001e62]/40 transition">
+                <div class="flex items-center justify-between text-[11px] font-bold text-[#001e62] mb-1">
+                  <span>Neurobiology</span>
+                  <span>&nearr;</span>
+                </div>
+                <h4 class="font-bold text-slate-900 group-hover:text-[#001e62] text-sm">Nervous System</h4>
+                <p class="text-xs text-slate-600 mt-1">Central and peripheral signaling pathways and reflex arc integration.</p>
+              </a>
+
+              <a href="https://mcdevitt.github.io/BIOS110/Neuron.html" target="_blank" rel="noopener noreferrer"
+                 class="group p-3.5 rounded-lg bg-slate-50 hover:bg-blue-50/70 border border-slate-200/80 hover:border-[#001e62]/40 transition">
+                <div class="flex items-center justify-between text-[11px] font-bold text-[#001e62] mb-1">
+                  <span>Electrophysiology</span>
+                  <span>&nearr;</span>
+                </div>
+                <h4 class="font-bold text-slate-900 group-hover:text-[#001e62] text-sm">Neuron Action Potential</h4>
+                <p class="text-xs text-slate-600 mt-1">Voltage-gated Na+/K+ channel dynamics and membrane potential propagation.</p>
+              </a>
+
+              <a href="https://mcdevitt.github.io/BIOS110/Optical_Illusions.html" target="_blank" rel="noopener noreferrer"
+                 class="group p-3.5 rounded-lg bg-slate-50 hover:bg-blue-50/70 border border-slate-200/80 hover:border-[#001e62]/40 transition">
+                <div class="flex items-center justify-between text-[11px] font-bold text-[#001e62] mb-1">
+                  <span>Sensory Biology</span>
+                  <span>&nearr;</span>
+                </div>
+                <h4 class="font-bold text-slate-900 group-hover:text-[#001e62] text-sm">Optical Illusions &amp; Perception</h4>
+                <p class="text-xs text-slate-600 mt-1">Retinal photoreceptors, lateral inhibition, and visual cortex processing.</p>
+              </a>
+
+              <a href="https://mcdevitt.github.io/BIOS110/Practice_for_Practical_Exam.html" target="_blank" rel="noopener noreferrer"
+                 class="group p-3.5 rounded-lg bg-slate-50 hover:bg-blue-50/70 border border-slate-200/80 hover:border-[#001e62]/40 transition">
+                <div class="flex items-center justify-between text-[11px] font-bold text-[#d50032] mb-1">
+                  <span>Exam Prep</span>
+                  <span>&nearr;</span>
+                </div>
+                <h4 class="font-bold text-slate-900 group-hover:text-[#001e62] text-sm">Practice for Practical Exam</h4>
+                <p class="text-xs text-slate-600 mt-1">Self-paced anatomical structure &amp; physiological function review tool.</p>
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         TAB 5: LARGE-ENROLLMENT STEM (#large-enrollment)
+    ====================================================================== -->
+    <section id="panel-large-enrollment" role="tabpanel" aria-labelledby="tab-btn-large-enrollment" class="tab-panel hidden space-y-8">
+      <div>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="w-1.5 h-7 bg-[#d50032] rounded-full"></span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-[#001e62]">Large-Enrollment STEM &amp; the Learning Assistant (LA) Model</h2>
+        </div>
+
+        <!-- Doctoral Dissertation Anchor Banner -->
+        <div class="bg-white rounded-xl border border-slate-200 border-l-4 border-l-[#001e62] p-6 sm:p-7 shadow-sm space-y-3">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-[#d50032]">
+              Ph.D. Dissertation (2022) &bull; University of Colorado Denver (Advisor: Dr. Laurel Hartley)
+            </span>
+            <span class="text-xs font-semibold text-slate-500">Integrative &amp; Systems Biology</span>
+          </div>
+          <h3 class="text-lg sm:text-xl font-bold text-[#001e62] leading-snug">
+            Advancing Understanding of Student-Centered Instruction in Undergraduate STEM by Promoting the Connection of Theory with Analytical Techniques
+          </h3>
+          <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+            Active learning is consistently linked to higher student success in undergraduate STEM, yet understanding <em>why</em> active learning works, in what contexts, and for whom requires connecting explicit learning theory with rigorous classroom observation methodologies. My dissertation—followed by postdoctoral work in CU Denver’s <strong>Office of Inclusive Excellence in STEM (2022–2024)</strong>—examined Learning Assistant (LA) supported STEM courses across three core themes that shape how I prepare Peer Learning Assistants (PLAs) and graduate Teaching Assistants (TAs) today.
+          </p>
+        </div>
+      </div>
+
+      <!-- Three Dissertation Chapter Cards -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Chapter I -->
+        <article class="bg-white rounded-xl border border-slate-200 border-t-4 border-t-[#001e62] p-6 shadow-sm flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-bold uppercase tracking-wider bg-blue-50 text-[#001e62] px-2.5 py-0.5 rounded-full">
+                Chapter I &bull; Modified COPUS
+              </span>
+              <span class="text-xs font-semibold text-slate-400">51 Courses</span>
+            </div>
+            <h3 class="text-base sm:text-lg font-bold text-[#001e62] leading-snug">
+              Learning Assistant Supported STEM Courses Exhibit More Student-Centered Course Structure Compared to a National Sample
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Analyzed <strong>287 class sessions across 51 introductory biology, chemistry, and physics courses</strong> at three universities using a modified 37-code Classroom Observation Protocol for Undergraduate STEM (COPUS) separating LA, instructor, and student behaviors.
+            </p>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              LA-supported courses exhibited <strong>69.0% student-centered instruction</strong> compared to <strong>18.6%</strong> in the North American benchmark sample. Instructors led lecture and whole-class discussion, whereas LAs guided small groups and one-on-one discussions nearly as frequently as instructors during active work.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-100">
+            <p class="text-[11px] font-bold uppercase tracking-wider text-[#d50032]">Instructional Implication</p>
+            <p class="text-xs text-slate-600 mt-1">
+              Near-peer LAs/PLAs multiply guided feedback during active problem-solving and lab work without replacing faculty framing.
+            </p>
+          </div>
+        </article>
+
+        <!-- Chapter II -->
+        <article class="bg-white rounded-xl border border-slate-200 border-t-4 border-t-[#d50032] p-6 shadow-sm flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-bold uppercase tracking-wider bg-red-50 text-[#d50032] px-2.5 py-0.5 rounded-full">
+                Chapter II &bull; Sociocultural Lens
+              </span>
+              <span class="text-xs font-semibold text-slate-400">Mediated Action</span>
+            </div>
+            <h3 class="text-base sm:text-lg font-bold text-[#001e62] leading-snug">
+              Mediated Action: A Theory to Support Understanding of Active Learning
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Applies Wertsch’s sociocultural theory of <strong>mediated action</strong> and 75-minute stimulated recall faculty interviews to investigate <em>who</em> is learning, <em>what</em> is learned, <em>why</em>, and <em>how</em> classroom artifacts and dialogue mediate growth.
+            </p>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Comparing two courses with nearly identical COPUS profiles and concept-inventory gains revealed distinct faculty intentions—one emphasizing iterative conceptual mastery and another prioritizing science identity, belonging, and dismantling &ldquo;weed-out&rdquo; norms.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-100">
+            <p class="text-[11px] font-bold uppercase tracking-wider text-[#d50032]">Instructional Implication</p>
+            <p class="text-xs text-slate-600 mt-1">
+              Worksheets and activities depend on facilitation; training TAs and PLAs to probe student reasoning supports both conceptual and affective outcomes.
+            </p>
+          </div>
+        </article>
+
+        <!-- Chapter III -->
+        <article class="bg-white rounded-xl border border-slate-200 border-t-4 border-t-[#001e62] p-6 shadow-sm flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-bold uppercase tracking-wider bg-emerald-50 text-emerald-800 px-2.5 py-0.5 rounded-full">
+                Chapter III &bull; Quantitative Methods
+              </span>
+              <span class="text-xs font-semibold text-slate-400">Monte Carlo (R)</span>
+            </div>
+            <h3 class="text-base sm:text-lg font-bold text-[#001e62] leading-snug">
+              Classroom Observations: How Often Do We Need to Observe?
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Built Monte Carlo simulation frameworks in R to evaluate how observation design decisions—<strong>observation window duration</strong> (1 second to 5 minutes), <strong>misclassification error</strong> (false positives vs. false negatives), <strong>baseline behavior frequency</strong>, and <strong>sampling strategy</strong>—govern parameter precision.
+            </p>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Demonstrated how 2-minute intervals inflate estimates of brief behaviors, why behaviors near 50% frequency carry the widest confidence intervals, and when cluster or systematic sampling must account for course structure.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-100">
+            <p class="text-[11px] font-bold uppercase tracking-wider text-[#d50032]">Instructional Implication</p>
+            <p class="text-xs text-slate-600 mt-1">
+              Aligning observation sampling intensity with explicit formative feedback or evaluation goals prevents over-interpreting limited classroom snapshots.
+            </p>
+          </div>
+        </article>
+      </div>
+
+      <!-- Published Harvard Dataverse LA Dataset Card -->
+      <article class="bg-white rounded-xl border border-slate-200 border-l-4 border-l-[#d50032] p-6 sm:p-7 shadow-sm">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div class="space-y-2 max-w-3xl">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="inline-block text-[10px] font-bold uppercase tracking-wider bg-red-100 text-[#d50032] px-2.5 py-0.5 rounded">
+                Replication Dataset &bull; Harvard Dataverse (2024)
+              </span>
+              <span class="text-xs font-semibold text-slate-500">
+                DOI: 10.7910/DVN/G6C9UG
+              </span>
+            </div>
+            <h3 class="text-lg sm:text-xl font-bold text-[#001e62] leading-snug">
+              Replication Data for: Learning Assistant (LA) supported undergraduate STEM courses exhibit more student-centered classroom structure compared to a large North American sample
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              <strong>McDevitt A.</strong>, Hartley L., Talbot R., Doughty L., Boyer J., Kramer L., Kornreich Leshem H. (2024). <em>Harvard Dataverse</em>. Publicly archived 37-code modified COPUS observation dataset spanning 287 class sessions across 51 LA-supported introductory STEM courses.
+            </p>
+          </div>
+          <a href="https://doi.org/10.7910/DVN/G6C9UG" target="_blank" rel="noopener noreferrer"
+             class="shrink-0 inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg bg-[#001e62] hover:bg-[#d50032] text-white text-xs sm:text-sm font-semibold shadow-sm transition">
+            Access Dataset on Harvard Dataverse &nearr;
+          </a>
+        </div>
+      </article>
+
+      <!-- Large-Enrollment Gateway Biology Leadership & TA Facilitation -->
+      <article class="bg-white rounded-xl border border-slate-200 border-t-4 border-t-[#001e62] p-6 sm:p-7 shadow-sm">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+          <span class="text-xs font-bold uppercase tracking-wider text-[#001e62] bg-blue-50 px-2.5 py-1 rounded-md">Instructional Leadership &bull; 2015 – Present</span>
+          <span class="text-xs font-semibold text-slate-500">UIC &bull; CU Denver &bull; Illinois State University</span>
+        </div>
+        <h3 class="text-xl font-bold text-[#001e62] mb-2">Large-Enrollment Gateway Biology Leadership &amp; TA Facilitation</h3>
+        <p class="text-sm sm:text-base text-slate-600 leading-relaxed mb-4">
+          As Instructor of Record across three public research universities, I have led high-enrollment introductory biology lectures and multi-section laboratory programs—training teaching assistants and Peer Learning Assistants in dialogic facilitation, formative feedback, and inclusive classroom policies:
+        </p>
+        <ul class="space-y-2 text-sm text-slate-700">
+          <li class="flex items-start gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#d50032] mt-2 shrink-0"></span>
+            <span><strong>University of Illinois Chicago (2024–Present):</strong> BIOS 110 Lecture (400–480 students/semester) &amp; BIOS 110 Lab (850–1,100 students/semester; 14–18 TAs + MSLC PLAs).</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#d50032] mt-2 shrink-0"></span>
+            <span><strong>University of Colorado Denver (2017–2023):</strong> BIOL 2011 Organisms to Ecosystems Lab (250–750 students/semester; 6–16 TAs) &amp; BIOL 3445 Introduction to Evolution.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#d50032] mt-2 shrink-0"></span>
+            <span><strong>Illinois State University (2015–2016):</strong> BSC 101 Fundamental Concepts in Biology (400–500 students/semester; 15–20 TAs; awarded the Tak Cheung/Joni St. John General Education Lecture Instructor Award).</span>
+          </li>
+        </ul>
+
+        <div class="card-products">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+            <div class="p-3 rounded-lg bg-slate-50 border border-slate-200/80">
+              <span class="inline-block text-[10px] font-bold uppercase tracking-wider bg-amber-100 text-amber-900 px-2 py-0.5 rounded mb-1">Poster &bull; International LA Conference 2022</span>
+              <p class="text-slate-800">
+                <strong>McDevitt A.</strong>, Hartley L., Talbot R. (2022). "Learning Assistant supported STEM courses exhibit more student-centered course structure compared to a North American sample." Boulder, CO.
+              </p>
+            </div>
+
+            <div class="p-3 rounded-lg bg-slate-50 border border-slate-200/80">
+              <span class="inline-block text-[10px] font-bold uppercase tracking-wider bg-amber-100 text-amber-900 px-2 py-0.5 rounded mb-1">Poster &bull; SABER 2018</span>
+              <p class="text-slate-800">
+                <strong>McDevitt A.</strong>, Talbot R., Boyer J., Hartley L. (2018). "Classroom observation protocols: Implications of sampling design and frequency." Minneapolis, MN.
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- =====================================================================
+         TAB 6: UNDERGRADUATE FIELD RESEARCH EXPERIENCES (#field-research)
+    ====================================================================== -->
+    <section id="panel-field-research" role="tabpanel" aria-labelledby="tab-btn-field-research" class="tab-panel hidden space-y-8">
+      <div>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="w-1.5 h-7 bg-[#d50032] rounded-full"></span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-[#001e62]">Undergraduate Field Research Experiences</h2>
+        </div>
+        <p class="text-slate-600 leading-relaxed max-w-4xl">
+          Residential biological field stations and summer Research Experiences for Undergraduates (REUs) offer transformative immersion in ecological inquiry, peer community, and professional identity development. Over more than a decade, I have directed field station operations, mentored over 60 undergraduate research projects, and led multi-site research on student motivation and affective learning outcomes in the field.
+        </p>
+      </div>
+
+      <!-- Topic Callout Cards with Embedded Products -->
+      <div class="space-y-6">
+        
+        <!-- Card 1: Undergraduate Field Experiences Research Network (U-FERN) -->
+        <article class="bg-white rounded-xl border border-slate-200 border-t-4 border-t-[#001e62] p-6 sm:p-7 shadow-sm">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-[#001e62] bg-blue-50 px-2.5 py-1 rounded-md">NSF RCN-UBE &bull; 2018 – Present</span>
+            <span class="text-xs font-semibold text-slate-500">Network Collaborator &amp; Co-Author</span>
+          </div>
+          <h3 class="text-xl font-bold text-[#001e62] mb-2">Undergraduate Field Experiences Research Network (U-FERN)</h3>
+          <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+            Collaborated with an interdisciplinary community of field station directors, ecologists, and education researchers through <a href="https://ufern.net/" target="_blank" rel="noopener noreferrer" class="bio-link">U-FERN</a> to synthesize how field experiences cultivate affective learning outcomes—such as belonging, self-efficacy, and connection to place—and to establish shared frameworks for assessing undergraduate field learning.
+          </p>
+
+          <!-- Embedded Products & Outputs -->
+          <div class="card-products">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="text-xs font-extrabold uppercase tracking-wider text-[#001e62]">Associated Publications &amp; Network Meetings</span>
+            </div>
+            <div class="space-y-3 text-sm">
+              <div class="p-3.5 rounded-lg bg-slate-50 border border-slate-200/80 border-l-4 border-l-[#001e62]">
+                <span class="inline-block text-[10px] font-bold uppercase tracking-wider bg-blue-100 text-[#001e62] px-2 py-0.5 rounded mb-1">Peer-Reviewed Review &bull; Bulletin of the ESA (2021)</span>
+                <p class="text-slate-800">
+                  Ward, E., O’Connell K., Race A., Alwin A., Cortijo-Robles K., Esparza D., Jolley A., <strong>McDevitt A.</strong>, Patel M., Prevost L., Shaulskiy S., Shinbro X., Treibergs K., Alvaro M., Sea W. (2021). "Affective Learning Outcomes in the Field: A Review of the 2021 Undergraduate Field Experiences Research Network Meeting." <em>Bulletin of the Ecological Society of America</em>, 102(4): e01920.
+                </p>
+                <a href="https://doi.org/10.1002/bes2.1920" target="_blank" rel="noopener noreferrer" class="inline-block mt-1 text-xs font-bold text-[#d50032] hover:underline">
+                  https://doi.org/10.1002/bes2.1920 &nearr;
+                </a>
+              </div>
+
+              <div class="p-3 rounded-lg bg-slate-50 border border-slate-200/80">
+                <span class="inline-block text-[10px] font-bold uppercase tracking-wider bg-amber-100 text-amber-900 px-2 py-0.5 rounded mb-1">Invited Network Workshops</span>
+                <p class="text-slate-800">
+                  Undergraduate Field Experiences Research Network (U-FERN) Annual Network Meetings — Blue River, OR (2019) &amp; Hickory Corners, MI (2018).
+                </p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2: Harvard Forest Summer Research Program in Ecology (NSF REU) -->
+        <article class="bg-white rounded-xl border border-slate-200 border-t-4 border-t-[#d50032] p-6 sm:p-7 shadow-sm">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-[#d50032] bg-red-50 px-2.5 py-1 rounded-md">Harvard University &bull; 2015 – 2021</span>
+            <span class="text-xs font-semibold text-slate-500">Assistant Program Coordinator, Fellow &amp; Associate</span>
+          </div>
+          <h3 class="text-xl font-bold text-[#001e62] mb-2">Harvard Forest Summer Research Program in Ecology (NSF REU)</h3>
+          <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+            Supported 38+ residential undergraduate researchers in the <a href="https://harvardforest.fas.harvard.edu/" target="_blank" rel="noopener noreferrer" class="bio-link">Harvard Forest</a> Summer Research Program in Ecology through proposal revision, research best practices, laboratory/field logistics, data synthesis, and symposium preparation (~40% of participants published in peer-reviewed journals or presented at national conferences). Led multi-decade longitudinal evaluations of NSF REU student outcomes alongside Dr. Aaron Ellison and Manisha Patel using pre/post instruments and Cultural-Historical Activity Theory (CHAT).
+          </p>
+
+          <!-- Embedded Products & Outputs -->
+          <div class="card-products">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="text-xs font-extrabold uppercase tracking-wider text-[#001e62]">Associated Publications, Presentations &amp; Mentored Projects</span>
+            </div>
+            <div class="space-y-3 text-sm">
+              <div class="p-3.5 rounded-lg bg-slate-50 border border-slate-200/80 border-l-4 border-l-[#d50032]">
+                <span class="inline-block text-[10px] font-bold uppercase tracking-wider bg-red-100 text-[#d50032] px-2 py-0.5 rounded mb-1">Peer-Reviewed Article &bull; Ecology and Evolution (2020)</span>
+                <p class="text-slate-800">
+                  <strong>McDevitt A.</strong>, Patel M., Ellison A. (2020). "Lessons and recommendations from three decades as an NSF REU site: A call for systems‐based assessment." <em>Ecology and Evolution</em>, 10(6): 2710–2738.
+                </p>
+                <a href="https://doi.org/10.1002/ece3.6136" target="_blank" rel="noopener noreferrer" class="inline-block mt-1 text-xs font-bold text-[#d50032] hover:underline">
+                  https://doi.org/10.1002/ece3.6136 &nearr;
+                </a>
+              </div>
+
+              <div class="p-3.5 rounded-lg bg-slate-50 border border-slate-200/80 border-l-4 border-l-[#d50032]">
+                <span class="inline-block text-[10px] font-bold uppercase tracking-wider bg-red-100 text-[#d50032] px-2 py-0.5 rounded mb-1">Peer-Reviewed Article &bull; BioScience (2016)</span>
+                <p class="text-slate-800">
+                  <strong>McDevitt A.</strong>, Patel M., Rose B., Ellison A. (2016). "Insights into student gains from undergraduate research using pre/post assessments." <em>BioScience</em>, 66(12): 1070–1078.
+                </p>
+                <a href="https://doi.org/10.1093/biosci/biw141" target="_blank" rel="noopener noreferrer" class="inline-block mt-1 text-xs font-bold text-[#d50032] hover:underline">
+                  https://doi.org/10.1093/biosci/biw141 &nearr;
+                </a>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <div class="p-3 rounded-lg bg-slate-50 border border-slate-200/80">
+                  <span class="inline-block text-[10px] font-bold uppercase tracking-wider bg-amber-100 text-amber-900 px-2 py-0.5 rounded mb-1">Oral Presentation &bull; U-FERN 2021</span>
+                  <p class="text-slate-800">
+                    Patel M., <strong>McDevitt A.</strong>, Ellison A. (2021). "Using cultural-historical activity theory to interpret student gains and program outcomes at the Harvard Forest REU site."
+                  </p>
+                </div>
+
+                <div class="p-3 rounded-lg bg-slate-50 border border-slate-200/80">
+                  <span class="inline-block text-[10px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-900 px-2 py-0.5 rounded mb-1">Undergraduate Mentorship</span>
+                  <p class="text-slate-800">
+                    Mentored 38 undergraduate REU projects across forest ecology, biogeochemistry, and ecological informatics (2015–2016 cohorts), with ~40% leading to peer-reviewed papers or national conference presentations.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3: Raystown Field Station (RFS) Environmental Science Semester -->
+        <article class="bg-white rounded-xl border border-slate-200 border-t-4 border-t-[#001e62] p-6 sm:p-7 shadow-sm">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-[#001e62] bg-blue-50 px-2.5 py-1 rounded-md">Juniata College &bull; August 2011 – August 2014</span>
+            <span class="text-xs font-semibold text-slate-500">Resident Director &amp; Field Instructor</span>
+          </div>
+          <h3 class="text-xl font-bold text-[#001e62] mb-2">Raystown Field Station (RFS) Environmental Science Semester</h3>
+          <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+            Directed residential field station operations at <a href="https://www.juniata.edu/academics/departments/environmental/field-station/" target="_blank" rel="noopener noreferrer" class="bio-link">Juniata College’s Raystown Field Station</a> in Huntingdon, PA and provided hands-on guidance for 26 undergraduate student research teams during the immersive Environmental Science Semester—assisting with experimental design, sampling logistics, quality assurance, statistical analysis, and symposium papers/posters while teaching GIS, Ornithology, Wildlife Techniques, and Sense of Place.
+          </p>
+
+          <!-- Embedded Products & Outputs -->
+          <div class="card-products">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="text-xs font-extrabold uppercase tracking-wider text-[#001e62]">Associated Thesis, Presentations &amp; Field Station Outputs</span>
+            </div>
+            <div class="space-y-3 text-sm">
+              <div class="p-3.5 rounded-lg bg-slate-50 border border-slate-200/80 border-l-4 border-l-[#001e62]">
+                <span class="inline-block text-[10px] font-bold uppercase tracking-wider bg-blue-100 text-[#001e62] px-2 py-0.5 rounded mb-1">Master’s Thesis &bull; Illinois State University (2016)</span>
+                <p class="text-slate-800">
+                  <strong>McDevitt A.</strong> (2016). <em>Why are students doing research? Examining the motivation of students involved in undergraduate research programs.</em> M.S. Thesis (Advisor: Dr. Rebekka Darner-Gougis).
+                </p>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <div class="p-3 rounded-lg bg-slate-50 border border-slate-200/80">
+                  <span class="inline-block text-[10px] font-bold uppercase tracking-wider bg-amber-100 text-amber-900 px-2 py-0.5 rounded mb-1">Conference Scholarship &bull; NARST 2016</span>
+                  <p class="text-slate-800">
+                    <strong>McDevitt A.</strong>, Gougis R.D. (2016). "Self-Determination Theory as a Lens for Promoting Scientific Identity and Retention: A Pilot Study." Baltimore, MD.
+                  </p>
+                </div>
+
+                <div class="p-3 rounded-lg bg-slate-50 border border-slate-200/80">
+                  <span class="inline-block text-[10px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-900 px-2 py-0.5 rounded mb-1">Mentored Projects &amp; Community Science</span>
+                  <p class="text-slate-800">
+                    Mentored 26 undergraduate technical papers &amp; symposium projects (2011–2014); created custom bathymetry/GIS base maps for local dive rescue teams (Clay Bishop Water Safety Fund) and led K–12 field teacher workshops (Science in Motion).
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Persistent Footer -->
+  <footer class="bg-white border-t border-slate-200 mt-auto">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-7 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-500">
+      <p>&copy; 2026 Dr. Andrew McDevitt &bull; Department of Biological Sciences, University of Illinois Chicago</p>
+      <div class="flex items-center gap-4">
+        <a href="https://bios.uic.edu/profiles/mcdevitt-andrew/" target="_blank" rel="noopener noreferrer" class="hover:text-[#001e62] font-medium transition">UIC Profile</a>
+        <span>&bull;</span>
+        <a href="https://orcid.org/0000-0002-8446-4931" target="_blank" rel="noopener noreferrer" class="hover:text-[#001e62] font-medium transition">ORCID</a>
+        <span>&bull;</span>
+        <span>Hosted on GitHub Pages</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Interactive Tab & URL Hash Routing Logic -->
+  <script>
+    (function () {
+      const validTabs = ['about', 'bios110', 'cures', 'simulations', 'large-enrollment', 'field-research'];
+      const tabButtons = document.querySelectorAll('.tab-btn');
+      const tabPanels = document.querySelectorAll('.tab-panel');
+      const navBar = document.getElementById('portfolio-nav');
+
+      function activateTab(tabId, options) {
+        const opts = options || {};
+        const targetTab = validTabs.includes(tabId) ? tabId : 'about';
+
+        // Update button styles, ARIA attributes, and .active state
+        tabButtons.forEach(function (btn) {
+          const isMatch = btn.getAttribute('data-tab') === targetTab;
+          btn.setAttribute('aria-selected', isMatch ? 'true' : 'false');
+          btn.classList.toggle('active', isMatch);
+
+          if (isMatch) {
+            btn.classList.add('border-[#d50032]', 'text-[#001e62]');
+            btn.classList.remove('border-transparent', 'text-slate-500', 'hover:text-[#001e62]');
+          } else {
+            btn.classList.remove('border-[#d50032]', 'text-[#001e62]');
+            btn.classList.add('border-transparent', 'text-slate-500', 'hover:text-[#001e62]');
+          }
+        });
+
+        // Show active panel and hide others
+        tabPanels.forEach(function (panel) {
+          const isMatch = panel.id === 'panel-' + targetTab;
+          panel.classList.toggle('active', isMatch);
+          if (isMatch) {
+            panel.classList.remove('hidden');
+          } else {
+            panel.classList.add('hidden');
+          }
+        });
+
+        // Smoothly scroll back to top of tab bar if user is scrolled down
+        if (opts.scrollToNav && navBar) {
+          const navTop = navBar.getBoundingClientRect().top;
+          if (navTop < 0) {
+            navBar.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+
+        // Safely update URL hash on GitHub Pages without failing in sandboxed iframes
+        if (opts.updateHash) {
+          try {
+            if (window.history && typeof window.history.replaceState === 'function') {
+              window.history.replaceState(null, '', '#' + targetTab);
+            }
+          } catch (e) {
+            // Ignore SecurityError in sandboxed preview iframes
+          }
+        }
+      }
+
+      // Attach click handlers to all tab buttons
+      tabButtons.forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          const selectedTab = btn.getAttribute('data-tab');
+          activateTab(selectedTab, { updateHash: true, scrollToNav: true });
+        });
+      });
+
+      // Handle initial load from URL hash (e.g., McDevitt.github.io/#bios110)
+      function handleHashChange() {
+        try {
+          const hash = (window.location.hash || '').replace(/^#/, '').trim();
+          if (validTabs.includes(hash)) {
+            activateTab(hash, { updateHash: false, scrollToNav: false });
+          }
+        } catch (e) {
+          // Ignore location access restrictions in sandboxed environments
+        }
+      }
+
+      try {
+        window.addEventListener('hashchange', handleHashChange);
+      } catch (e) {
+        // Ignore if hashchange listener cannot be attached
+      }
+
+      // Initialize default or hash-targeted tab on load
+      handleHashChange();
+    })();
+  </script>
+
 </body>
 </html>
